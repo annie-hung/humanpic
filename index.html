@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人類圖自助測驗與分析</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>探索你的生命藍圖：人類圖</h1>
+            <p>歡迎來到自我探索的旅程。人類圖 (Human Design) 是一套強大的工具，結合了占星術、易經、卡巴拉生命之樹和脈輪系統，為你揭示獨特的天賦與決策機制。</p>
+            <div style="display: flex; gap: 20px; margin-top: 20px;">
+                <button class="btn" id="btn-learn-more" aria-controls="modal-intro">了解更多人類圖介紹</button>
+                <button class="btn" id="btn-start-test" aria-controls="modal-test">開始自我探索</button>
+            </div>
+        </header>
+
+        <main id="result-section">
+            <h2>你的專屬分析結果</h2>
+            <div id="analysis-output">
+                <p>請點擊「開始自我探索」並填寫您的出生資訊，AI 將為您生成個人化的深度報告。</p>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="modal-intro" role="dialog" aria-modal="true" aria-labelledby="modal-intro-title">
+        <div class="modal-content">
+            <h2 id="modal-intro-title" style="text-align: center;">人類圖深度介紹</h2>
+            <div role="tablist" id="intro-tabs" style="margin-bottom: 20px;">
+                <button role="tab" id="tab-what" aria-controls="panel-what" aria-selected="true" class="btn tab-btn">人類圖是什麼</button>
+                <button role="tab" id="tab-types" aria-controls="panel-types" aria-selected="false" class="btn tab-btn">五種類型</button>
+            </div>
+            
+            <div id="panel-what" role="tabpanel" aria-labelledby="tab-what">
+                <img src="placeholder_illustration_what.gif" alt="人類圖概念圖" style="width: 100%; max-height: 200px; object-fit: contain; margin-bottom: 15px;">
+                <p>人類圖是結合四大學問的個人化系統，它顯示了你在宇宙中的能量運作方式、九大能量中心的開啟或空白狀態，以及你獨特的內在權威和策略。</p>
+                </div>
+            
+            <div id="panel-types" role="tabpanel" aria-labelledby="tab-types" hidden>
+                <img src="placeholder_illustration_types.gif" alt="人類圖五大類型圖" style="width: 100%; max-height: 200px; object-fit: contain; margin-bottom: 15px;">
+                <h3>五大類型簡介</h3>
+                <ul>
+                    <li><strong>顯示者 (Manifestor):</strong> 發起行動，策略：告知。</li>
+                    <li><strong>生產者 (Generator):</strong> 透過回應來創造。</li>
+                    <li><strong>顯示生產者 (Manifesting Generator):</strong> 快速啟動與回應。</li>
+                    <li><strong>投射者 (Projector):</strong> 等待被邀請，策略：等待邀請。</li>
+                    <li><strong>反射者 (Reflector):</strong> 月亮週期運作，策略：等待一個月亮週期。</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="closeModal('modal-intro')" style="margin-top: 20px;">關閉</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-test" role="dialog" aria-modal="true" aria-labelledby="modal-test-title">
+        <div class="modal-content">
+            <h2 id="modal-test-title" style="text-align: center;">填寫出生資訊</h2>
+            <form id="human-design-form">
+                <label for="birth-date">出生日期：</label>
+                <input type="date" id="birth-date" name="birthDate" required aria-required="true">
+
+                <label for="birth-time">出生時間 (24小時制)：</label>
+                <input type="time" id="birth-time" name="birthTime" required aria-required="true">
+                
+                <label for="birth-location">出生地點 (城市名稱)：</label>
+                <input type="text" id="birth-location" name="birthLocation" placeholder="例：台北, New York" required aria-required="true">
+
+                <p id="form-error" style="color: red; margin-top: 10px;"></p>
+
+                <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                    <button type="submit" class="btn">生成我的生命藍圖</button>
+                    <button type="button" class="btn" onclick="closeModal('modal-test')">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
