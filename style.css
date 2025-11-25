@@ -1,0 +1,108 @@
+/* style.css */
+
+:root {
+    /* 顏色定義 */
+    --color-primary: #F0EAD6; /* 杏色/柔暖白底色 */
+    --color-secondary: #705740; /* 冷靜棕色 (文字/邊框) */
+    --color-accent: #C28F50; /* 按鈕/強調色 */
+    --color-background-modal: rgba(255, 255, 255, 0.95); /* 柔和透光背景 */
+
+    /* 字體與間距 */
+    --font-family-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --spacing-lg: 3rem;
+    --spacing-md: 1.5rem;
+    --spacing-sm: 0.5rem;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-main);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* 核心容器與響應式佈局 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+header, main {
+    background-color: #FFFFFF;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 按鈕設計 */
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--color-accent);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover, .btn:focus {
+    background-color: var(--color-secondary);
+    box-shadow: 0 0 10px rgba(194, 143, 80, 0.5);
+    outline: none;
+}
+
+/* 彈窗 (Modal) 基本樣式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background-modal);
+    display: none; /* 預設隱藏 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+    header, main {
+        padding: var(--spacing-md);
+    }
+    .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
